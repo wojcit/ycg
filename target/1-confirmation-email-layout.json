@@ -1,0 +1,68 @@
+{
+  "testId" : "1-confirmation-email-layout",
+  "name" : "confirmation email layout",
+  "report" : {
+    "nodes" : [ {
+      "name" : "check confirmation email layout",
+      "status" : "info",
+      "time" : 1524477038169,
+      "includedTags" : [ "desktop" ],
+      "excludedTags" : [ ],
+      "sections" : [ {
+        "name" : "header",
+        "place" : {
+          "filePath" : "com\\steroids\\example\\specs\\email.gspec",
+          "lineNumber" : 6
+        },
+        "objects" : [ {
+          "name" : "header",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "com\\steroids\\example\\specs\\email.gspec",
+              "lineNumber" : 8
+            },
+            "name" : "height 60 px",
+            "highlight" : [ "header" ]
+          } ]
+        } ]
+      }, {
+        "name" : "blue-header",
+        "place" : {
+          "filePath" : "com\\steroids\\example\\specs\\email.gspec",
+          "lineNumber" : 10
+        },
+        "objects" : [ {
+          "name" : "blue-header",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "com\\steroids\\example\\specs\\email.gspec",
+              "lineNumber" : 12
+            },
+            "name" : "text contains \"Sehr geehrter StepStone Nutzer!\"",
+            "highlight" : [ "blue-header" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "com\\steroids\\example\\specs\\email.gspec",
+              "lineNumber" : 13
+            },
+            "name" : "below header 10 to 14 px",
+            "highlight" : [ "blue-header", "header" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "blue-header" : {
+          "area" : [ 660, 73, 600, 61 ]
+        },
+        "header" : {
+          "area" : [ 660, 0, 600, 60 ]
+        }
+      },
+      "screenshot" : "layout-1-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}
