@@ -13,8 +13,8 @@ var reportData = {
   "report" : {
     "nodes" : [ {
       "name" : "check confirmation email layout",
-      "status" : "info",
-      "time" : 1524477038169,
+      "status" : "error",
+      "time" : 1539173296582,
       "includedTags" : [ "desktop" ],
       "excludedTags" : [ ],
       "sections" : [ {
@@ -26,12 +26,13 @@ var reportData = {
         "objects" : [ {
           "name" : "header",
           "specs" : [ {
-            "status" : "info",
+            "status" : "error",
             "place" : {
               "filePath" : "com\\steroids\\example\\specs\\email.gspec",
               "lineNumber" : 8
             },
             "name" : "height 60 px",
+            "errors" : [ "\"header\" height is 86px instead of 60px" ],
             "highlight" : [ "header" ]
           } ]
         } ]
@@ -44,12 +45,13 @@ var reportData = {
         "objects" : [ {
           "name" : "blue-header",
           "specs" : [ {
-            "status" : "info",
+            "status" : "error",
             "place" : {
               "filePath" : "com\\steroids\\example\\specs\\email.gspec",
               "lineNumber" : 12
             },
             "name" : "text contains \"Sehr geehrter StepStone Nutzer!\"",
+            "errors" : [ "\"blue-header\" text is \"Aktywuj swojego Agenta Pracy\" but should contain \"Sehr geehrter StepStone Nutzer!\"" ],
             "highlight" : [ "blue-header" ]
           }, {
             "status" : "info",
@@ -64,10 +66,10 @@ var reportData = {
       } ],
       "objects" : {
         "blue-header" : {
-          "area" : [ 660, 73, 600, 61 ]
+          "area" : [ 660, 99, 600, 60 ]
         },
         "header" : {
-          "area" : [ 660, 0, 600, 60 ]
+          "area" : [ 660, 0, 600, 86 ]
         }
       },
       "screenshot" : "layout-1-screenshot.png",
