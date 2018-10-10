@@ -1,0 +1,13 @@
+@objects
+  header css #header
+  blue-header css .header-blue_rounded-top
+
+@on desktop
+= header =
+    header:
+        height 60 px
+
+= blue-header =
+    blue-header:
+        text contains "Sehr geehrter StepStone Nutzer!"
+        below header 10 to 14 px
