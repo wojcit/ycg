@@ -1,4 +1,4 @@
-package com.steroids.ycg.framework;
+package com.ycg.framework;
 
 
 public class MailNotFoundException extends Exception {

@@ -11,7 +11,6 @@ Feature: Job alert
     Then   I type random email into JobAgent Popover
     And    I save JobAgent from JobAgent Popover
     Then   Confirm JobAgent from email
-    Then   I check layout on "desktop"
     When   I click confirmation button
     Then   I am on Password Set page
     Then   I check performance

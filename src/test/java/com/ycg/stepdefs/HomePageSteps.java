@@ -1,12 +1,12 @@
-package com.steroids.ycg.stepdefs;
+package com.ycg.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.steroids.ycg.framework.AbstractPage;
-import com.steroids.ycg.framework.MailNotFoundException;
-import com.steroids.ycg.pages.HomePage;
-import com.steroids.ycg.pages.JobAgentConfirmationEmailPage;
-import com.steroids.ycg.pages.PasswordSetPage;
+import com.ycg.framework.AbstractPage;
+import com.ycg.framework.MailNotFoundException;
+import com.ycg.pages.HomePage;
+import com.ycg.pages.JobAgentConfirmationEmailPage;
+import com.ycg.pages.PasswordSetPage;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -96,11 +96,6 @@ public class HomePageSteps {
     jobAgentConfirmationEmailPage.confirmEmailMessageFistep(email, subject);
   }
 
-  @Then("^I check layout on \"([^\"]*)\"$")
-  public void checkLooksGood(String device) throws IOException {
-    jobAgentConfirmationEmailPage.confirmationEmailPageLayoutTest(driver, device);
-  }
-
   @Then("^I check performance$")
   public void checkPerf() {
     homePage.checkPerformance();
@@ -119,6 +114,6 @@ public class HomePageSteps {
 
   @Then("^I am on Password Set page$")
   public void iAmOnPasswordSetPage() {
-    Assert.assertTrue(passwordSetPage.checkIfThisIsPasswordSetPage());
+    Assert.assertTrue(passwordSetPage.checkIfThisIsPasswordSetModal());
   }
 }

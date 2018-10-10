@@ -1,4 +1,4 @@
-package com.steroids.ycg.framework;
+package com.ycg.framework;
 
 import com.stepstone.inbucket.InbucketClient;
 import com.stepstone.inbucket.models.Message;
@@ -33,7 +33,7 @@ public class EmailChecker {
   public String getMessageUrl(String recipientAddress, String subject) {
     try {
       log.info("Waiting 10s for email");
-      Thread.sleep(1000);
+      Thread.sleep(10000);
       Message message = getMessage(getMessageInfo(recipientAddress, subject));
 
       return HOST + "mailbox/" + message.mailbox + "/" + message.id + "/html";

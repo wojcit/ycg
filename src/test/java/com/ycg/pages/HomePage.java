@@ -1,8 +1,8 @@
-package com.steroids.ycg.pages;
+package com.ycg.pages;
 
 
 import com.google.gson.Gson;
-import com.steroids.ycg.framework.AbstractPage;
+import com.ycg.framework.AbstractPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
