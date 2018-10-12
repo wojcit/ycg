@@ -1,4 +1,4 @@
-# selenium-tests-on-steroids
+# your-career-group
 This is an example BDD test automation Project for Java using the Cucumber-JVM framework.
 Its enriched with email, layouts and performance validations.
 

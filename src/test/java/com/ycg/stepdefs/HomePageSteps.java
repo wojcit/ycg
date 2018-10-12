@@ -20,7 +20,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-import java.io.IOException;
 import java.util.UUID;
 
 public class HomePageSteps {
@@ -32,7 +31,7 @@ public class HomePageSteps {
   private PasswordSetPage passwordSetPage;
   private String subject;
 
-  @Before(value = "@automated", order = 1)
+  @Before(order = 1)
   public void initWebDriver() {
     ChromeOptions options = new ChromeOptions();
     String path;
@@ -53,7 +52,7 @@ public class HomePageSteps {
     driver = new ChromeDriver(options);
   }
 
-  @Before(value = "@automated", order = 10)
+  @Before(order = 10)
   public void initHomePage() {
     homePage = new HomePage(driver);
   }

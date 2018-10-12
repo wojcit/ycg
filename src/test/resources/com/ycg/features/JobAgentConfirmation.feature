@@ -3,7 +3,7 @@ Feature: Job alert
   I want to create job alerts,
   So that I can receive notifications about new open positions.
 
-  @automated @desktop @jobAlert
+  @desktop @jobAlert
   Scenario: Create and confirm JobAgent
     Given  I am on the home page
     When   I perform search
