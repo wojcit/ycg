@@ -12,5 +12,6 @@ Feature: Job alert
     And    I save JobAgent from JobAgent Popover
     Then   Confirm JobAgent from email
     When   I click confirmation button
-    Then   I am on Password Set page
+    Then   I am on Password Set modal
+    And    I type password and create account on Password Set modal
     Then   I check performance

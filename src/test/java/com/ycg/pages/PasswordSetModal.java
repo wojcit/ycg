@@ -10,16 +10,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class PasswordSetPage extends AbstractPage {
+public class PasswordSetModal extends AbstractPage {
 
-  PasswordSetPage(WebDriver driver){
+  PasswordSetModal(WebDriver driver){
     super(driver);
   }
 
-  @FindBy (id = "register_password")
-  WebElement elPasswordField;
-
   private static final By PASSWORD_FIELD = By.id("register_password");
+  private static final By CREATE_ACCOUNT_BUTTON = By.cssSelector(".ui-dialog .button-primary");
 
 
 
@@ -29,8 +27,12 @@ public class PasswordSetPage extends AbstractPage {
   }
 
   public void typePassword(String password) {
+    WebElement elPasswordField = getDriver().findElement(PASSWORD_FIELD);
     elPasswordField.clear();
     elPasswordField.sendKeys(password);
+  }
+  public void clickCreateAccount(){
+    getDriver().findElement(CREATE_ACCOUNT_BUTTON).click();
   }
 
 }

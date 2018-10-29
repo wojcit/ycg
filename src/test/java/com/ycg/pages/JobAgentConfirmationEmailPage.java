@@ -15,7 +15,7 @@ public class JobAgentConfirmationEmailPage extends AbstractPage {
   }
 
 
-  public PasswordSetPage confirmEmailMessageFistep(String email, String subject) {
+  public PasswordSetModal confirmEmailMessageFistep(String email, String subject) {
     EmailChecker emailChecker = new EmailChecker();
     String url = emailChecker.getMessageUrl(email, subject);
     if (!Objects.equals(url, getDriver().getCurrentUrl())) {
@@ -26,7 +26,7 @@ public class JobAgentConfirmationEmailPage extends AbstractPage {
             By.cssSelector(".button-container a")).getAttribute("href");
     logInfo(confirmationUrl);
     getDriver().get(confirmationUrl);
-    return new PasswordSetPage(getDriver());
+    return new PasswordSetModal(getDriver());
   }
 
   public void goToConfirmationEmailFistep(String email, String subject) {

@@ -6,7 +6,7 @@ import com.ycg.framework.AbstractPage;
 import com.ycg.framework.MailNotFoundException;
 import com.ycg.pages.HomePage;
 import com.ycg.pages.JobAgentConfirmationEmailPage;
-import com.ycg.pages.PasswordSetPage;
+import com.ycg.pages.PasswordSetModal;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -28,7 +28,7 @@ public class HomePageSteps {
   private HomePage homePage;
   private JobAgentConfirmationEmailPage jobAgentConfirmationEmailPage;
   private String email;
-  private PasswordSetPage passwordSetPage;
+  private PasswordSetModal passwordSetModal;
   private String subject;
 
   @Before(order = 1)
@@ -59,6 +59,7 @@ public class HomePageSteps {
 
   @Given("^I am on the home page$")
   public void iAmOnTheHomePage() {
+   // homePage = new HomePage(driver);
     homePage.navigateToHomePage();
   }
 
@@ -107,12 +108,19 @@ public class HomePageSteps {
 
   @When("^I click confirmation button$")
   public void iClickConfirmationButton() {
-    passwordSetPage = jobAgentConfirmationEmailPage
+    passwordSetModal = jobAgentConfirmationEmailPage
         .confirmEmailMessageFistep(email, subject);
   }
 
-  @Then("^I am on Password Set page$")
-  public void iAmOnPasswordSetPage() {
-    Assert.assertTrue(passwordSetPage.checkIfThisIsPasswordSetModal());
+  @Then("^I am on Password Set modal$")
+  public void iAmOnPasswordSetModal() {
+    Assert.assertTrue(passwordSetModal.checkIfThisIsPasswordSetModal());
+  }
+
+
+  @And("^I type password and create account on Password Set modal$")
+  public void iTypePasswordAndCreateAccountOnPasswordSetModal() {
+    passwordSetModal.typePassword("testtest2%");
+    passwordSetModal.clickCreateAccount();
   }
 }

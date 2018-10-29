@@ -15,16 +15,9 @@ public abstract class AbstractPage {
   public AbstractPage(WebDriver driver) {
     this.driver = driver;
   }
-  protected AbstractPage(){
+
+  protected AbstractPage() {
     super();
-  }
-
-  protected WebDriver getDriver() {
-    return driver;
-  }
-
-  protected WebDriverWait driverWait(long timeoutSeconds) {
-    return new WebDriverWait(driver, timeoutSeconds);
   }
 
   public static void logInfo(String message) {
@@ -34,5 +27,13 @@ public abstract class AbstractPage {
       log.info(line);
     }
     scanner.close();
+  }
+
+  protected WebDriver getDriver() {
+    return driver;
+  }
+
+  protected WebDriverWait driverWait(long timeoutSeconds) {
+    return new WebDriverWait(driver, timeoutSeconds);
   }
 }

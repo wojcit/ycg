@@ -11,11 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 public class HomePage extends AbstractPage {
 
   //TODO: bring url from config
-  private static final String STST_HOME_URL = "https://www.hotelcareer.pl/";
+  private static final String STST_HOME_URL = "https://hc-com.stable.testuser2.ycg.int/";
   private static final By BY_SEARCH_WHAT_FIELD = By.id("taetigkeiten");
   private static final By BY_SEARCH_BUTTON = By.id("btnSearch_new");
   private static final By BY_JAPO_MODAL = By.id("Form_Jobfinder");
