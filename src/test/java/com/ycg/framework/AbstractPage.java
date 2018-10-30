@@ -10,7 +10,8 @@ import java.util.Scanner;
 public abstract class AbstractPage {
 
   private static final Logger log = LogManager.getLogger(AbstractPage.class);
-  private WebDriver driver;
+  public WebDriver driver;
+  private String windowHandle;
 
   public AbstractPage(WebDriver driver) {
     this.driver = driver;
@@ -35,5 +36,11 @@ public abstract class AbstractPage {
 
   protected WebDriverWait driverWait(long timeoutSeconds) {
     return new WebDriverWait(driver, timeoutSeconds);
+  }
+
+  public void switchToNewOpenedWindow() {
+    for (String winHandle : driver.getWindowHandles()) {
+      driver.switchTo().window(winHandle);
+    }
   }
 }

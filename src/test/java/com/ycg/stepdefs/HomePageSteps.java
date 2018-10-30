@@ -6,8 +6,12 @@ import com.ycg.framework.AbstractPage;
 import com.ycg.framework.MailNotFoundException;
 import com.ycg.pages.HomePage;
 import com.ycg.pages.JobAgentConfirmationEmailPage;
+import com.ycg.pages.JobAgentPopover;
+import com.ycg.pages.ListingPage;
 import com.ycg.pages.PasswordSetModal;
+import com.ycg.pages.ResultListPage;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -26,10 +30,13 @@ public class HomePageSteps {
 
   private WebDriver driver;
   private HomePage homePage;
+  private JobAgentPopover jobAgentPopover;
   private JobAgentConfirmationEmailPage jobAgentConfirmationEmailPage;
   private String email;
   private PasswordSetModal passwordSetModal;
   private String subject;
+  private ResultListPage resultListPage;
+  private ListingPage listingPage;
 
   @Before(order = 1)
   public void initWebDriver() {
@@ -59,18 +66,21 @@ public class HomePageSteps {
 
   @Given("^I am on the home page$")
   public void iAmOnTheHomePage() {
-   // homePage = new HomePage(driver);
+    // homePage = new HomePage(driver);
     homePage.navigateToHomePage();
   }
 
   @When("^I perform search$")
   public void theSearchPhraseIsEntered() {
     homePage.performSearch();
+    resultListPage = new ResultListPage(driver);
+
   }
 
   @Then("^JobAgent Popover is shown$")
   public void japoIsShown() {
-    assertThat(homePage.japoIsDisplayed()).isTrue();
+    jobAgentPopover = new JobAgentPopover(driver);
+    assertThat(jobAgentPopover.isJapoDisplayed()).isTrue();
   }
 
   @Then("^I type random email into JobAgent Popover$")
@@ -101,7 +111,7 @@ public class HomePageSteps {
     homePage.checkPerformance();
   }
 
-  @After(value = "@automated")
+  @After()
   public void disposeWebDriver() {
     driver.quit();
   }
@@ -122,5 +132,30 @@ public class HomePageSteps {
   public void iTypePasswordAndCreateAccountOnPasswordSetModal() {
     passwordSetModal.typePassword("testtest2%");
     passwordSetModal.clickCreateAccount();
+  }
+
+  @Then("^I close JobAgent Popover$")
+  public void iCloseJobAgentPopover() {
+    jobAgentPopover.closeJobAgentPopover();
+  }
+
+  @And("^I click JobAgent C2A on Resultlist$")
+  public void iClickJobAgentCAOnResultlist() {
+    resultListPage.clickJobAgentC2A();
+  }
+
+  @Then("^I am on resultlist$")
+  public void iAmOnResultlist() {
+    Assert.assertTrue(resultListPage.isResultlistPageDisplayed());
+  }
+
+  @When("^I open random listing from resultlist$")
+  public void iOpenRandomListingFromResultlist() {
+    listingPage = resultListPage.openRandomListing();
+  }
+
+  @Then("^I am on listing$")
+  public void iAmOnListing() {
+    Assert.assertTrue(listingPage.isListingDisplayed());
   }
 }
