@@ -37,3 +37,6 @@ Feature: Job alert
     And   I close JobAgent Popover
     When I open random listing from resultlist
     Then I am on listing
+    When I click Apply button
+    Then I am on login page
+

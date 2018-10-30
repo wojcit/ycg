@@ -8,10 +8,10 @@ import com.ycg.pages.HomePage;
 import com.ycg.pages.JobAgentConfirmationEmailPage;
 import com.ycg.pages.JobAgentPopover;
 import com.ycg.pages.ListingPage;
+import com.ycg.pages.LoginPage;
 import com.ycg.pages.PasswordSetModal;
 import com.ycg.pages.ResultListPage;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -37,6 +37,7 @@ public class HomePageSteps {
   private String subject;
   private ResultListPage resultListPage;
   private ListingPage listingPage;
+  private LoginPage loginPage;
 
   @Before(order = 1)
   public void initWebDriver() {
@@ -66,7 +67,6 @@ public class HomePageSteps {
 
   @Given("^I am on the home page$")
   public void iAmOnTheHomePage() {
-    // homePage = new HomePage(driver);
     homePage.navigateToHomePage();
   }
 
@@ -157,5 +157,16 @@ public class HomePageSteps {
   @Then("^I am on listing$")
   public void iAmOnListing() {
     Assert.assertTrue(listingPage.isListingDisplayed());
+  }
+
+  @And("^I click Apply button$")
+  public void iClickApplyButton() {
+    listingPage.clickApplyButton();
+  }
+
+  @Then("^I am on login page$")
+  public void iAmOnLoginPage() {
+    loginPage = new LoginPage(driver);
+    Assert.assertTrue(loginPage.isLoginPageDisplayed());
   }
 }

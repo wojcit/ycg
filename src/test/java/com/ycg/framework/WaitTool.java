@@ -336,16 +336,16 @@ public final class WaitTool {
    */
   public static void waitForPageToLoad(WebDriver driver) {
     try (ImplicitWaitNullfier iwn = new ImplicitWaitNullfier(driver)) {
-      WebDriverWait wait = new WebDriverWait(driver, 30);
+      WebDriverWait wait = new WebDriverWait(driver, 60);
       try {
         wait.until(ExpectedConditions.not(ExpectedConditions.urlContains("about:blank")));
       } catch (TimeoutException ex) {
-        log.error("Error! After 30 seconds URL is still: 'about:blank'!!!", ex);
+        log.error("Error! After 60 seconds URL is still: 'about:blank'!!!", ex);
         throw ex;
       }
 
       try {
-        new WebDriverWait(driver, 30) {
+        new WebDriverWait(driver, 60) {
         }.until(
             (WebDriver webDriver) -> {
               Object
@@ -354,7 +354,7 @@ public final class WaitTool {
               return "complete".equals(documentState.toString());
             });
       } catch (TimeoutException ex) {
-        log.error("Timeout error! After 30 s page did not load!", ex);
+        log.error("Timeout error! After 60 s page did not load!", ex);
         throw ex;
       }
     }

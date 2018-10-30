@@ -7,14 +7,17 @@ import org.openqa.selenium.WebDriver;
 
 public class ListingPage extends AbstractPage {
 
+  private final static By APPLY_BUTTON = By.cssSelector(".onlbew_button_top");
+  private final static By LISTING = By.id("innercontent");
   ListingPage(WebDriver driver) {
     super(driver);
   }
 
-  private final static By LISTING = By.id("innercontent");
-
-
   public boolean isListingDisplayed() {
     return driver.findElement(LISTING).isDisplayed();
+  }
+
+  public void clickApplyButton() {
+    driver.findElement(APPLY_BUTTON).click();
   }
 }
