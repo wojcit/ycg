@@ -39,4 +39,5 @@ Feature: Job alert
     Then I am on listing
     When I click Apply button
     Then I am on login page
+    And I am logged as user testuser@ec2-34-244-6-12.eu-west-1.compute.amazonaws.com with password testtest2%
 

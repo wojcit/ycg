@@ -12,6 +12,7 @@ import com.ycg.pages.LoginPage;
 import com.ycg.pages.PasswordSetModal;
 import com.ycg.pages.ResultListPage;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -168,5 +169,11 @@ public class HomePageSteps {
   public void iAmOnLoginPage() {
     loginPage = new LoginPage(driver);
     Assert.assertTrue(loginPage.isLoginPageDisplayed());
+  }
+
+  @And("^I am logged as user ([^\\s]+) with password ([^\\s]+)?$")
+  public void iLogAsTestuserWithPasswordTesttest(String login, String password) {
+    listingPage.login(login, password);
+    Assert.assertTrue(listingPage.isUserLoggedIn());
   }
 }

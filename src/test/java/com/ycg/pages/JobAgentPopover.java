@@ -28,8 +28,7 @@ public class JobAgentPopover extends AbstractPage {
     }
   }
 
-
   public void closeJobAgentPopover() {
-  driver.findElement(BY_JAPO_CLOSE).click();
+    driver.findElement(BY_JAPO_CLOSE).click();
   }
 }

@@ -20,4 +20,5 @@ public class LoginPage extends AbstractPage {
     switchToNewOpenedWindow();
     return driver.findElement(LOGIN_FORM).isDisplayed();
   }
+
 }

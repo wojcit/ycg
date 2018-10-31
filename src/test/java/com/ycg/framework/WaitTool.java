@@ -285,18 +285,6 @@ public final class WaitTool {
     }
   }
 
-  /*
-   * References: 1. Mark Collin's post on:
-   * https://groups.google.com/forum/?fromgroups#!topic/webdriver/V9KqskkHmIs%5B1-25%5D Mark's code
-   * inspires me to write this class. Thank you! Mark. 2. Andre, and Tarun Kumar's post on:
-   * https://groups.google.com/forum/?fromgroups=#!topic/selenium-users/6VO_7IXylgY 3. Explicit and
-   * Implicit Waits: http://seleniumhq.org/docs/04_webdriver_advanced.html
-   *
-   * Note: 1. Instead of creating new WebDriverWait() instance every time in each methods, I tried to
-   * reuse a single WebDriverWait() instance, but I found and tested that creating 100 WebDriverWait()
-   * instances takes less than one millisecond. So, it seems not necessary.
-   */
-
 
   public static void waitforAngularJS(WebDriver driver, int timeoutInSeconds) {
 
