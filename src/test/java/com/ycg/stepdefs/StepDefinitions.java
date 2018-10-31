@@ -27,7 +27,7 @@ import org.testng.Assert;
 
 import java.util.UUID;
 
-public class HomePageSteps {
+public class StepDefinitions {
 
   private WebDriver driver;
   private HomePage homePage;
